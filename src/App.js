@@ -42,7 +42,15 @@ function App() {
 				<BiArchive className="inline-block text-red-500 align-center mr-3" />
 				My Appointments
 			</h1>
-			<AddAppointment />
+			<AddAppointment
+				lastId={appointmentList.reduce(
+					(max, item) => (Number(item.id) > max ? Number(item.id) : max),
+					0
+				)}
+				onSendAppointmentData={(appointmentData) =>
+					setAppointmentList([...appointmentList, appointmentData])
+				}
+			/>
 			<Search
 				query={query}
 				onQueryChange={(queryStr) => setQuery(queryStr)}
