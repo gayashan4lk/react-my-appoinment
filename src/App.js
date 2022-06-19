@@ -15,7 +15,7 @@ function App() {
 			return (
 				item.petName.toLowerCase().includes(query.toLowerCase()) ||
 				item.ownerName.toLowerCase().includes(query.toLowerCase()) ||
-				item.aptNotes.toLowerCase().includes(query.toLowerCase())
+				item.aptDate.toLowerCase().includes(query.toLowerCase())
 			);
 		})
 		.sort((a, b) => {
@@ -43,7 +43,14 @@ function App() {
 				My Appointments
 			</h1>
 			<AddAppointment />
-			<Search query={query} onQueryChange={(queryStr) => setQuery(queryStr)} />
+			<Search
+				query={query}
+				onQueryChange={(queryStr) => setQuery(queryStr)}
+				sortBy={sortBy}
+				onSortByChange={(sortByStr) => setSortBy(sortByStr)}
+				orderBy={orderBy}
+				onOrderByChange={(orderByStr) => setOrderBy(orderByStr)}
+			/>
 			<ul className="divide-y divide-gray-300">
 				{filteredAppointments.map((appointment) => (
 					<AppoitmentInfo
