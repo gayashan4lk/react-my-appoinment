@@ -1,5 +1,5 @@
-import { BiSearch, BiCaretDown, BiCheck } from "react-icons/bi";
 import { useState } from "react";
+import { BiSearch, BiCaretDown, BiCheck } from "react-icons/bi";
 
 const DropDown = ({ toggle }) => {
 	if (!toggle) {
